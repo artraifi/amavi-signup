@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AMAVI Socials — Join Our Influencer Network</title>
+<meta name="description" content="Sign up to the AMAVI Socials influencer database for gifted collaborations, paid campaigns, and brand partnerships.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #F0ECE4;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    color: #1a1a1a;
+  }
+
+  /* ══════════════════════════════════════════
+     HERO HEADER
+     ══════════════════════════════════════════ */
+  .hero {
+    background: #3219E0;
+    padding: 60px 24px 56px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before,
+  .hero::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(240,236,228,0.05);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .hero::before { width: 600px; height: 600px; }
+  .hero::after  { width: 400px; height: 400px; border-color: rgba(240,236,228,0.03); }
+
+  .hero-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 52px;
+    color: #F0ECE4;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-sub {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(240,236,228,0.45);
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 30px;
+    color: #F0ECE4;
+    line-height: 1.35;
+    max-width: 440px;
+    margin: 0 auto 16px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    color: rgba(240,236,228,0.55);
+    line-height: 1.7;
+    max-width: 420px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ══════════════════════════════════════════
+     FORM CONTAINER
+     ══════════════════════════════════════════ */
+  .form-container {
+    max-width: 580px;
+    margin: -20px auto 60px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .form-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 44px 40px 48px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+  }
+
+  /* ══════════════════════════════════════════
+     SECTION HEADERS
+     ══════════════════════════════════════════ */
+  .section-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #3219E0;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(50,25,224,0.1);
+  }
+
+  .section-spacer { height: 36px; }
+
+  /* ══════════════════════════════════════════
+     FORM FIELDS
+     ══════════════════════════════════════════ */
+  .field { margin-bottom: 22px; }
+
+  .field > label:first-child {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    color: #1a1a1a;
+    margin-bottom: 7px;
+  }
+
+  .field .optional {
+    font-weight: 300;
+    font-size: 11px;
+    color: rgba(26,26,26,0.35);
+    margin-left: 6px;
+  }
+
+  .field .required {
+    color: #3219E0;
+    margin-left: 2px;
+  }
+
+  .field .hint {
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(26,26,26,0.4);
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+
+  .field input[type="text"],
+  .field input[type="email"],
+  .field input[type="url"],
+  .field select,
+  .field textarea {
+    width: 100%;
+    padding: 13px 16px;
+    border: 1px solid rgba(26,26,26,0.12);
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #1a1a1a;
+    background: #fafaf8;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+  }
+
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus {
+    border-color: #3219E0;
+    box-shadow: 0 0 0 3px rgba(50,25,224,0.08);
+    background: #fff;
+  }
+
+  .field input.error,
+  .field select.error {
+    border-color: #e03219;
+    box-shadow: 0 0 0 3px rgba(224,50,25,0.08);
+  }
+
+  .field textarea {
+    resize: vertical;
+    min-height: 90px;
+  }
+
+  .field select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%231a1a1a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+  }
+
+  /* ── Inline row ── */
+  .field-row { display: flex; gap: 16px; }
+  .field-row .field { flex: 1; }
+
+  /* ── Radio / Checkbox pill groups ── */
+  .option-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 4px;
+  }
+
+  .option-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 400;
+    font-size: 13px;
+    color: #1a1a1a;
+    cursor: pointer;
+    padding: 10px 16px;
+    border: 1px solid rgba(26,26,26,0.1);
+    border-radius: 100px;
+    transition: all 0.2s;
+    background: #fafaf8;
+  }
+
+  .option-group label:hover {
+    border-color: rgba(50,25,224,0.3);
+    background: rgba(50,25,224,0.03);
+  }
+
+  .option-group input[type="radio"],
+  .option-group input[type="checkbox"] {
+    accent-color: #3219E0;
+    width: 15px;
+    height: 15px;
+  }
+
+  /* ── Niche tag chips ── */
+  .niche-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 4px;
+  }
+
+  .niche-tag { display: none; }
+
+  .niche-tag + label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    padding: 9px 18px;
+    border: 1px solid rgba(26,26,26,0.1);
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: rgba(26,26,26,0.6);
+    background: #fafaf8;
+    user-select: none;
+  }
+
+  .niche-tag + label:hover {
+    border-color: rgba(50,25,224,0.3);
+    color: #3219E0;
+  }
+
+  .niche-tag:checked + label {
+    background: #3219E0;
+    color: #fff;
+    border-color: #3219E0;
+  }
+
+  /* ── Honeypot (hidden from humans, bots fill it) ── */
+  .hp-field {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+    pointer-events: none;
+    tab-index: -1;
+  }
+
+  /* ── Field error message ── */
+  .field-error {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+    color: #e03219;
+    margin-top: 5px;
+    display: none;
+  }
+
+  .field-error.visible { display: block; }
+
+  /* ── Rates grid ── */
+  .rates-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 16px;
+    margin-top: 8px;
+  }
+
+  .rate-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .rate-item .rate-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    color: rgba(26,26,26,0.55);
+  }
+
+  .rate-item input {
+    width: 100%;
+    padding: 11px 14px 11px 28px;
+    border: 1px solid rgba(26,26,26,0.12);
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    color: #1a1a1a;
+    background: #fafaf8;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+  }
+
+  .rate-item input:focus {
+    border-color: #3219E0;
+    box-shadow: 0 0 0 3px rgba(50,25,224,0.08);
+    background: #fff;
+  }
+
+  .rate-item .input-wrap {
+    position: relative;
+  }
+
+  .rate-item .currency-symbol {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    color: rgba(26,26,26,0.3);
+    pointer-events: none;
+  }
+
+  @media (max-width: 600px) {
+    .rates-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ══════════════════════════════════════════
+     SUBMIT BUTTON
+     ══════════════════════════════════════════ */
+  .submit-btn {
+    width: 100%;
+    padding: 16px 24px;
+    background: #3219E0;
+    color: #F0ECE4;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s, opacity 0.2s;
+    margin-top: 12px;
+    position: relative;
+  }
+
+  .submit-btn:hover { background: #2a12b8; }
+  .submit-btn:active { transform: scale(0.99); }
+
+  .submit-btn.loading {
+    pointer-events: none;
+    opacity: 0.7;
+  }
+
+  .submit-btn .spinner {
+    display: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(240,236,228,0.3);
+    border-top-color: #F0ECE4;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .submit-btn.loading .spinner { display: block; }
+  .submit-btn.loading .btn-text { opacity: 0.7; }
+
+  @keyframes spin { to { transform: translateY(-50%) rotate(360deg); } }
+
+  /* ══════════════════════════════════════════
+     SUCCESS STATE
+     ══════════════════════════════════════════ */
+  .success-card {
+    display: none;
+    text-align: center;
+    padding: 60px 40px;
+  }
+
+  .success-card .check-circle {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #3219E0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+  }
+
+  .success-card .check-circle svg {
+    width: 28px;
+    height: 28px;
+    stroke: #F0ECE4;
+    stroke-width: 2.5;
+    fill: none;
+  }
+
+  .success-card h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 32px;
+    color: #1a1a1a;
+    margin-bottom: 12px;
+  }
+
+  .success-card p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    color: rgba(26,26,26,0.55);
+    line-height: 1.7;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+
+  .success-card .brand-mark {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 20px;
+    color: rgba(50,25,224,0.3);
+    letter-spacing: 4px;
+    margin-top: 40px;
+  }
+
+  /* ══════════════════════════════════════════
+     ERROR TOAST
+     ══════════════════════════════════════════ */
+  .error-toast {
+    display: none;
+    background: #e03219;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    padding: 14px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  .error-toast.visible { display: block; }
+
+  /* ══════════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════════ */
+  .form-footer {
+    text-align: center;
+    padding: 24px 20px 48px;
+    max-width: 580px;
+    margin: 0 auto;
+  }
+
+  .form-footer p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    color: rgba(26,26,26,0.35);
+    line-height: 1.6;
+  }
+
+  .form-footer a {
+    color: #3219E0;
+    text-decoration: none;
+  }
+
+  /* ══════════════════════════════════════════
+     RESPONSIVE
+     ══════════════════════════════════════════ */
+  @media (max-width: 600px) {
+    .hero { padding: 48px 20px 44px; }
+    .hero-logo { font-size: 40px; }
+    .hero-title { font-size: 24px; }
+    .form-card { padding: 32px 24px 36px; }
+    .success-card { padding: 48px 24px; }
+    .field-row { flex-direction: column; gap: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════
+     HERO
+     ════════════════════════════════════════ -->
+<div class="hero">
+  <div class="hero-logo">amavi</div>
+  <div class="hero-sub">Socials</div>
+  <div class="hero-title">Join Our Influencer Network</div>
+  <div class="hero-body">We partner with creators across every niche. Sign up to be considered for gifted collaborations, paid campaigns, and brand partnerships.</div>
+</div>
+
+<!-- ════════════════════════════════════════
+     FORM
+     ════════════════════════════════════════ -->
+<div class="form-container">
+  <div class="form-card">
+
+    <!-- SUCCESS STATE (hidden until submit) -->
+    <div class="success-card" id="successCard">
+      <div class="check-circle">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      </div>
+      <h2>You're In.</h2>
+      <p>Thanks for signing up! We'll be in touch when we have a campaign or partnership that's right for you.</p>
+      <div class="brand-mark">amavi</div>
+    </div>
+
+    <!-- FORM -->
+    <form id="signupForm">
+
+      <div class="error-toast" id="errorToast"></div>
+
+      <!-- Honeypot — invisible to humans, bots auto-fill it -->
+      <div class="hp-field" aria-hidden="true">
+        <label for="website">Website</label>
+        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+      </div>
+
+      <!-- ── ABOUT YOU ── -->
+      <div class="section-label">About You</div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="firstName">First Name <span class="required">*</span></label>
+          <input type="text" id="firstName" name="firstName" placeholder="Jane" required>
+        </div>
+        <div class="field">
+          <label for="lastName">Last Name <span class="required">*</span></label>
+          <input type="text" id="lastName" name="lastName" placeholder="Doe" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="email">Email Address <span class="required">*</span></label>
+        <input type="email" id="email" name="email" placeholder="jane@example.com" required>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="city">City <span class="required">*</span></label>
+          <input type="text" id="city" name="city" placeholder="Dublin" required>
+        </div>
+        <div class="field">
+          <label for="country">Country <span class="required">*</span></label>
+          <input type="text" id="country" name="country" placeholder="Ireland" required>
+        </div>
+      </div>
+
+      <div class="section-spacer"></div>
+
+      <!-- ── YOUR SOCIALS ── -->
+      <div class="section-label">Your Socials</div>
+      <div class="hint" style="margin-bottom: 20px; margin-top: -12px;">Paste the direct link to your profile on each platform. Leave blank any you're not active on.</div>
+
+      <div class="field">
+        <label for="instagram">Instagram <span class="required">*</span></label>
+        <input type="url" id="instagram" name="instagram" placeholder="https://instagram.com/yourhandle" required>
+        <div class="field-error" id="igError"></div>
+      </div>
+
+      <div class="field">
+        <label for="tiktok">TikTok</label>
+        <input type="url" id="tiktok" name="tiktok" placeholder="https://tiktok.com/@yourhandle">
+        <div class="field-error" id="tiktokError"></div>
+      </div>
+
+      <div class="field">
+        <label for="youtube">YouTube</label>
+        <input type="url" id="youtube" name="youtube" placeholder="https://youtube.com/@yourchannel">
+        <div class="field-error" id="youtubeError"></div>
+      </div>
+
+      <div class="field">
+        <label for="twitter">X (Twitter)</label>
+        <input type="url" id="twitter" name="twitter" placeholder="https://x.com/yourhandle">
+        <div class="field-error" id="twitterError"></div>
+      </div>
+
+      <div class="field">
+        <label for="linkedin">LinkedIn</label>
+        <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourprofile">
+        <div class="field-error" id="linkedinError"></div>
+      </div>
+
+      <div class="field">
+        <label for="blog">Blog / Website</label>
+        <input type="url" id="blog" name="blog" placeholder="https://yourblog.com">
+      </div>
+
+      <div class="field">
+        <label for="otherPlatform">Other Platform</label>
+        <div class="hint">Pinterest, Snapchat, podcast, etc.</div>
+        <input type="url" id="otherPlatform" name="otherPlatform" placeholder="https://...">
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="followers">Follower Count <span class="required">*</span></label>
+          <select id="followers" name="followers" required>
+            <option value="" disabled selected>Select range</option>
+            <option value="Under 5K (Nano)">Under 5K (Nano)</option>
+            <option value="5K – 15K (Micro)">5K – 15K (Micro)</option>
+            <option value="15K – 50K (Mid-tier)">15K – 50K (Mid-tier)</option>
+            <option value="50K – 150K (Macro)">50K – 150K (Macro)</option>
+            <option value="150K+ (Major)">150K+ (Major)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="engagement">Avg. Engagement Rate <span class="optional">(optional)</span></label>
+          <div class="hint">Estimate is fine.</div>
+          <select id="engagement" name="engagement">
+            <option value="" disabled selected>Select range</option>
+            <option value="Under 2%">Under 2%</option>
+            <option value="2% – 4%">2% – 4%</option>
+            <option value="4% – 7%">4% – 7%</option>
+            <option value="7%+">7%+</option>
+            <option value="Not sure">Not sure</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="section-spacer"></div>
+
+      <!-- ── YOUR NICHE ── -->
+      <div class="section-label">Your Niche</div>
+      <div class="field">
+        <label>Select all that apply <span class="required">*</span></label>
+        <div class="niche-grid">
+          <input type="checkbox" id="n1" name="niche" value="Fashion" class="niche-tag"><label for="n1">Fashion</label>
+          <input type="checkbox" id="n2" name="niche" value="Beauty" class="niche-tag"><label for="n2">Beauty</label>
+          <input type="checkbox" id="n3" name="niche" value="Lifestyle" class="niche-tag"><label for="n3">Lifestyle</label>
+          <input type="checkbox" id="n4" name="niche" value="Food & Drink" class="niche-tag"><label for="n4">Food & Drink</label>
+          <input type="checkbox" id="n5" name="niche" value="Travel" class="niche-tag"><label for="n5">Travel</label>
+          <input type="checkbox" id="n6" name="niche" value="Fitness & Wellness" class="niche-tag"><label for="n6">Fitness & Wellness</label>
+          <input type="checkbox" id="n7" name="niche" value="Parenting" class="niche-tag"><label for="n7">Parenting</label>
+          <input type="checkbox" id="n8" name="niche" value="Tech & Gaming" class="niche-tag"><label for="n8">Tech & Gaming</label>
+          <input type="checkbox" id="n9" name="niche" value="Home & Interiors" class="niche-tag"><label for="n9">Home & Interiors</label>
+          <input type="checkbox" id="n10" name="niche" value="Business & Finance" class="niche-tag"><label for="n10">Business & Finance</label>
+          <input type="checkbox" id="n11" name="niche" value="Music & Entertainment" class="niche-tag"><label for="n11">Music & Entertainment</label>
+          <input type="checkbox" id="n12" name="niche" value="Education" class="niche-tag"><label for="n12">Education</label>
+          <input type="checkbox" id="n13" name="niche" value="Other" class="niche-tag"><label for="n13">Other</label>
+        </div>
+      </div>
+
+      <div class="section-spacer"></div>
+
+      <!-- ── PARTNERSHIPS ── -->
+      <div class="section-label">Partnerships</div>
+
+      <div class="field">
+        <label>Are you open to gifted collaborations? <span class="required">*</span></label>
+        <div class="hint">Gifted = receiving product in exchange for content (no fee).</div>
+        <div class="option-group">
+          <label><input type="radio" name="gifted" value="Yes" required> Yes</label>
+          <label><input type="radio" name="gifted" value="Depends on the brand"> Depends on the brand</label>
+          <label><input type="radio" name="gifted" value="Paid only"> Paid only</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>What types of content do you create? <span class="required">*</span></label>
+        <div class="option-group">
+          <label><input type="checkbox" name="contentType" value="Reels / Short-form video"> Reels / Short-form video</label>
+          <label><input type="checkbox" name="contentType" value="Static feed posts"> Static feed posts</label>
+          <label><input type="checkbox" name="contentType" value="Stories"> Stories</label>
+          <label><input type="checkbox" name="contentType" value="UGC / Product reviews"> UGC / Product reviews</label>
+          <label><input type="checkbox" name="contentType" value="Long-form (YouTube / Blog)"> Long-form (YouTube / Blog)</label>
+          <label><input type="checkbox" name="contentType" value="Live content"> Live content</label>
+        </div>
+      </div>
+
+      <div class="section-spacer"></div>
+
+      <!-- ── RATES ── -->
+      <div class="section-label">Your Rates</div>
+
+      <div class="field">
+        <label>What are your rates per content type?</label>
+        <div class="hint">Leave blank for any you don't offer or are open to negotiating. Currency in EUR/GBP/USD — whatever you work in.</div>
+        <div class="rates-grid">
+          <div class="rate-item">
+            <span class="rate-label">Reel / Short-form video</span>
+            <div class="input-wrap">
+              <span class="currency-symbol">€</span>
+              <input type="text" id="rateReel" name="rateReel" placeholder="e.g. 250">
+            </div>
+          </div>
+          <div class="rate-item">
+            <span class="rate-label">Static feed post</span>
+            <div class="input-wrap">
+              <span class="currency-symbol">€</span>
+              <input type="text" id="rateStatic" name="rateStatic" placeholder="e.g. 150">
+            </div>
+          </div>
+          <div class="rate-item">
+            <span class="rate-label">Story (set of 3–5 frames)</span>
+            <div class="input-wrap">
+              <span class="currency-symbol">€</span>
+              <input type="text" id="rateStory" name="rateStory" placeholder="e.g. 100">
+            </div>
+          </div>
+          <div class="rate-item">
+            <span class="rate-label">UGC / Product review</span>
+            <div class="input-wrap">
+              <span class="currency-symbol">€</span>
+              <input type="text" id="rateUGC" name="rateUGC" placeholder="e.g. 200">
+            </div>
+          </div>
+          <div class="rate-item">
+            <span class="rate-label">Long-form (YouTube / Blog)</span>
+            <div class="input-wrap">
+              <span class="currency-symbol">€</span>
+              <input type="text" id="rateLongform" name="rateLongform" placeholder="e.g. 500">
+            </div>
+          </div>
+          <div class="rate-item">
+            <span class="rate-label">Live content / Takeover</span>
+            <div class="input-wrap">
+              <span class="currency-symbol">€</span>
+              <input type="text" id="rateLive" name="rateLive" placeholder="e.g. 300">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="rateCurrency">Preferred Currency</label>
+        <select id="rateCurrency" name="rateCurrency">
+          <option value="" disabled selected>Select currency</option>
+          <option value="EUR">EUR (€)</option>
+          <option value="GBP">GBP (£)</option>
+          <option value="USD">USD ($)</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="rateNotes">Rate Notes</label>
+        <div class="hint">Bundle deals, usage rights pricing, exclusivity fees, or anything else about your rates.</div>
+        <textarea id="rateNotes" name="rateNotes" placeholder="E.g. 10% discount for 3+ deliverables, usage rights +50%, open to barter for brands I love..." rows="2"></textarea>
+      </div>
+
+      <div class="section-spacer"></div>
+
+      <!-- ── INSIGHTS & EXTRAS ── -->
+      <div class="section-label">Insights & Extras</div>
+
+      <div class="field">
+        <label for="audienceInsights">Audience Insights</label>
+        <div class="hint">Tell us about your audience — top locations, age range, gender split, anything useful.</div>
+        <textarea id="audienceInsights" name="audienceInsights" placeholder="E.g. 70% female, 18-34, mostly UK & Ireland..."></textarea>
+      </div>
+
+      <div class="field">
+        <label for="pastCollabs">Past Brand Collaborations</label>
+        <div class="hint">Name a few brands you've worked with — helps us match you to the right campaigns.</div>
+        <textarea id="pastCollabs" name="pastCollabs" placeholder="E.g. ZARA, Glossier, local restaurants in Dublin..." rows="2"></textarea>
+      </div>
+
+      <div class="field">
+        <label for="mediaKit">Link to Media Kit</label>
+        <div class="hint">PDF, Google Drive, or portfolio link.</div>
+        <input type="url" id="mediaKit" name="mediaKit" placeholder="https://...">
+      </div>
+
+      <div class="field">
+        <label for="anythingElse">Anything else we should know?</label>
+        <textarea id="anythingElse" name="anythingElse" placeholder="Special interests, upcoming launches, availability, preferred brands to work with..." rows="3"></textarea>
+      </div>
+
+      <!-- ── CONSENT ── -->
+      <div class="field" style="margin-top: 8px;">
+        <label style="display: flex; align-items: flex-start; gap: 10px; font-weight: 400; font-size: 12px; color: rgba(26,26,26,0.5); line-height: 1.6; cursor: pointer;">
+          <input type="checkbox" id="consent" name="consent" required style="accent-color: #3219E0; width: 16px; height: 16px; margin-top: 2px; flex-shrink: 0;">
+          By submitting this form, I agree to be added to the AMAVI Socials influencer database and to be contacted regarding potential collaborations, campaigns, and partnership opportunities. I understand that my information may be shared with AMAVI's clients for the purpose of evaluating and arranging collaborations. Successful applicants will be notified via email.
+        </label>
+      </div>
+
+      <!-- ── SUBMIT ── -->
+      <button type="submit" class="submit-btn" id="submitBtn">
+        <span class="btn-text">Join the AMAVI Network</span>
+        <span class="spinner"></span>
+      </button>
+
+    </form>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<div class="form-footer">
+  <p>By submitting, you agree to be added to the AMAVI Socials influencer database. We'll only reach out when we have a relevant opportunity for you. Questions? Email <a href="mailto:hello@amavi.social">hello@amavi.social</a></p>
+</div>
+
+<!-- ══════════════════════════════════════════
+     JAVASCRIPT — Form submission to Google Sheets
+     ══════════════════════════════════════════ -->
+<script>
+  // ┌──────────────────────────────────────────────────────────────────┐
+  // │  HOW TO CONNECT TO GOOGLE SHEETS (one-time setup, ~5 minutes):  │
+  // │                                                                  │
+  // │  1. Create a new Google Sheet                                    │
+  // │  2. Add these column headers in Row 1:                           │
+  // │     Timestamp | First Name | Last Name | Email | City | Country  │
+  // │     | Instagram | TikTok | YouTube | X (Twitter) | LinkedIn       │
+  // │     | Blog | Other Platform | Followers                          │
+  // │     | Engagement | Niches | Gifted | Content Types               │
+  // │     | Rate: Reel | Rate: Static | Rate: Story | Rate: UGC        │
+  // │     | Rate: Long-form | Rate: Live | Currency | Rate Notes       │
+  // │     | Audience Insights | Past Collabs | Media Kit               │
+  // │     | Anything Else                                              │
+  // │                                                                  │
+  // │  3. Go to Extensions → Apps Script                               │
+  // │  4. Delete everything and paste this code:                       │
+  // │                                                                  │
+  // │     function doPost(e) {                                         │
+  // │       var sheet = SpreadsheetApp                                  │
+  // │         .getActiveSpreadsheet()                                  │
+  // │         .getActiveSheet();                                       │
+  // │       var data = JSON.parse(e.postData.contents);                │
+  // │       sheet.appendRow([                                          │
+  // │         new Date(),                                              │
+  // │         data.firstName,                                          │
+  // │         data.lastName,                                           │
+  // │         data.email,                                              │
+  // │         data.city,                                               │
+  // │         data.country,                                            │
+  // │         data.instagram,                                          │
+  // │         data.tiktok,                                             │
+  // │         data.youtube,                                            │
+  // │         data.twitter,                                            │
+  // │         data.linkedin,                                           │
+  // │         data.blog,                                               │
+  // │         data.otherPlatform,                                      │
+  // │         data.followers,                                          │
+  // │         data.engagement,                                         │
+  // │         data.niches,                                             │
+  // │         data.gifted,                                             │
+  // │         data.contentTypes,                                       │
+  // │         data.rateReel,                                           │
+  // │         data.rateStatic,                                         │
+  // │         data.rateStory,                                          │
+  // │         data.rateUGC,                                            │
+  // │         data.rateLongform,                                       │
+  // │         data.rateLive,                                           │
+  // │         data.rateCurrency,                                       │
+  // │         data.rateNotes,                                          │
+  // │         data.audienceInsights,                                   │
+  // │         data.pastCollabs,                                        │
+  // │         data.mediaKit,                                           │
+  // │         data.anythingElse                                        │
+  // │       ]);                                                        │
+  // │       return ContentService                                      │
+  // │         .createTextOutput(JSON.stringify({result: 'success'}))   │
+  // │         .setMimeType(ContentService.MimeType.JSON);              │
+  // │     }                                                            │
+  // │                                                                  │
+  // │  5. Click Deploy → New Deployment                                │
+  // │  6. Type = "Web app"                                             │
+  // │     Execute as = "Me"                                            │
+  // │     Who has access = "Anyone"                                    │
+  // │  7. Click Deploy, authorize, and copy the URL                    │
+  // │  8. Paste that URL below where it says YOUR_SCRIPT_URL           │
+  // └──────────────────────────────────────────────────────────────────┘
+
+  const GOOGLE_SCRIPT_URL = 'YOUR_SCRIPT_URL';
+
+  const form = document.getElementById('signupForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const successCard = document.getElementById('successCard');
+  const errorToast = document.getElementById('errorToast');
+
+  // ── Disposable email domains to block ──
+  const disposableDomains = [
+    'mailinator.com','guerrillamail.com','tempmail.com','throwaway.email',
+    'yopmail.com','sharklasers.com','guerrillamailblock.com','grr.la',
+    'dispostable.com','trashmail.com','10minutemail.com','temp-mail.org',
+    'fakeinbox.com','mailnesia.com','maildrop.cc','discard.email',
+    'getnada.com','tempail.com','mohmal.com','burnermail.io'
+  ];
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    // Clear previous errors
+    errorToast.classList.remove('visible');
+    document.querySelectorAll('.field-error').forEach(el => el.classList.remove('visible'));
+    document.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
+
+    // ── Honeypot check — if filled, silently "succeed" (it's a bot) ──
+    if (document.getElementById('website').value) {
+      form.style.display = 'none';
+      successCard.style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    // ── Gather values ──
+    const email = document.getElementById('email').value.trim();
+    const igUrl = document.getElementById('instagram').value.trim();
+    const tiktokUrl = document.getElementById('tiktok').value.trim();
+    const youtubeUrl = document.getElementById('youtube').value.trim();
+    const twitterUrl = document.getElementById('twitter').value.trim();
+    const linkedinUrl = document.getElementById('linkedin').value.trim();
+
+    const niches = [...document.querySelectorAll('input[name="niche"]:checked')]
+      .map(cb => cb.value).join(', ');
+
+    const contentTypes = [...document.querySelectorAll('input[name="contentType"]:checked')]
+      .map(cb => cb.value).join(', ');
+
+    const giftedVal = document.querySelector('input[name="gifted"]:checked');
+
+    // ── Validation ──
+    let hasError = false;
+
+    // Email: block disposable providers
+    const emailDomain = email.split('@')[1]?.toLowerCase();
+    if (disposableDomains.includes(emailDomain)) {
+      showFieldError('email', 'Please use a real email address — temporary/disposable emails are not accepted.');
+      hasError = true;
+    }
+
+    // Instagram URL validation (required)
+    if (!igUrl || !igUrl.toLowerCase().includes('instagram.com/')) {
+      showFieldError('igError', 'Please paste a valid Instagram profile URL (e.g. https://instagram.com/yourhandle).');
+      document.getElementById('instagram').classList.add('error');
+      hasError = true;
+    }
+
+    // TikTok URL validation (if provided)
+    if (tiktokUrl && !tiktokUrl.toLowerCase().includes('tiktok.com/')) {
+      showFieldError('tiktokError', 'Please paste a valid TikTok profile URL.');
+      document.getElementById('tiktok').classList.add('error');
+      hasError = true;
+    }
+
+    // YouTube URL validation (if provided)
+    if (youtubeUrl && !youtubeUrl.toLowerCase().match(/youtube\.com\/|youtu\.be\//)) {
+      showFieldError('youtubeError', 'Please paste a valid YouTube channel URL.');
+      document.getElementById('youtube').classList.add('error');
+      hasError = true;
+    }
+
+    // X/Twitter URL validation (if provided)
+    if (twitterUrl && !twitterUrl.toLowerCase().match(/x\.com\/|twitter\.com\//)) {
+      showFieldError('twitterError', 'Please paste a valid X (Twitter) profile URL.');
+      document.getElementById('twitter').classList.add('error');
+      hasError = true;
+    }
+
+    // LinkedIn URL validation (if provided)
+    if (linkedinUrl && !linkedinUrl.toLowerCase().includes('linkedin.com/')) {
+      showFieldError('linkedinError', 'Please paste a valid LinkedIn profile URL.');
+      document.getElementById('linkedin').classList.add('error');
+      hasError = true;
+    }
+
+    // Niche selection
+    if (!niches) {
+      showError('Please select at least one niche.');
+      hasError = true;
+    }
+
+    // Gifted preference
+    if (!giftedVal) {
+      showError('Please indicate your gifted collaboration preference.');
+      hasError = true;
+    }
+
+    // Content types
+    if (!contentTypes) {
+      showError('Please select at least one content type.');
+      hasError = true;
+    }
+
+    if (hasError) return;
+
+    // ── Build payload ──
+    const payload = {
+      firstName:        document.getElementById('firstName').value.trim(),
+      lastName:         document.getElementById('lastName').value.trim(),
+      email:            email,
+      city:             document.getElementById('city').value.trim(),
+      country:          document.getElementById('country').value.trim(),
+      instagram:        igUrl,
+      tiktok:           tiktokUrl,
+      youtube:          youtubeUrl,
+      twitter:          twitterUrl,
+      linkedin:         linkedinUrl,
+      blog:             document.getElementById('blog').value.trim(),
+      otherPlatform:    document.getElementById('otherPlatform').value.trim(),
+      followers:        document.getElementById('followers').value,
+      engagement:       document.getElementById('engagement').value,
+      niches:           niches,
+      gifted:           giftedVal.value,
+      contentTypes:     contentTypes,
+      rateReel:         document.getElementById('rateReel').value.trim(),
+      rateStatic:       document.getElementById('rateStatic').value.trim(),
+      rateStory:        document.getElementById('rateStory').value.trim(),
+      rateUGC:          document.getElementById('rateUGC').value.trim(),
+      rateLongform:     document.getElementById('rateLongform').value.trim(),
+      rateLive:         document.getElementById('rateLive').value.trim(),
+      rateCurrency:     document.getElementById('rateCurrency').value,
+      rateNotes:        document.getElementById('rateNotes').value.trim(),
+      audienceInsights: document.getElementById('audienceInsights').value.trim(),
+      pastCollabs:      document.getElementById('pastCollabs').value.trim(),
+      mediaKit:         document.getElementById('mediaKit').value.trim(),
+      anythingElse:     document.getElementById('anythingElse').value.trim()
+    };
+
+    // ── Submit ──
+    submitBtn.classList.add('loading');
+
+    try {
+      if (GOOGLE_SCRIPT_URL === 'YOUR_SCRIPT_URL') {
+        // Demo mode — simulate success after 1.5s
+        await new Promise(r => setTimeout(r, 1500));
+      } else {
+        await fetch(GOOGLE_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+      }
+
+      // Show success
+      form.style.display = 'none';
+      successCard.style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    } catch (err) {
+      showError('Something went wrong. Please try again or email us directly at hello@amavi.social');
+    } finally {
+      submitBtn.classList.remove('loading');
+    }
+  });
+
+  function showError(msg) {
+    errorToast.textContent = msg;
+    errorToast.classList.add('visible');
+    errorToast.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function showFieldError(id, msg) {
+    const el = document.getElementById(id);
+    if (el) {
+      el.textContent = msg;
+      el.classList.add('visible');
+    }
+  }
+</script>
+
+</body>
+</html>
