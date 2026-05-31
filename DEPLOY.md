@@ -73,6 +73,96 @@ DNS usually propagates in 5–30 minutes, occasionally up to a few hours. Vercel
 
 ---
 
+## Email notifications (Resend)
+
+Form submissions are emailed to **hello@amavisocials.co** by the serverless
+function at `api/submit.js`, which calls [Resend](https://resend.com). The
+Resend API key is **not** in the code — it's an environment variable, so it
+stays secret.
+
+### One-time setup
+
+1. In Vercel, open your project → **Settings** → **Environment Variables**.
+2. Add:
+   - **Name:** `RESEND_API_KEY` — **Value:** your Resend key (`re_...`).
+   - *(optional)* `RESEND_TO` — recipient. Defaults to `hello@amavisocials.co`.
+   - *(optional)* `RESEND_FROM` — sender. Defaults to
+     `AMAVI Signups <signups@notifications.amavisocials.co>` (your verified
+     Resend domain), so you usually don't need to set this.
+3. **Redeploy** (Deployments → ⋯ → Redeploy) so the new variable takes effect.
+
+### Sender domain
+
+The sender uses **notifications.amavisocials.co**, which is verified in Resend,
+so mail to **hello@amavisocials.co** delivers reliably. The local part is
+arbitrary — `signups@notifications.amavisocials.co` is just a label. Override it
+with `RESEND_FROM` if you want a different from-name or address (it must stay on
+the verified `notifications.amavisocials.co` domain).
+
+### Testing locally
+
+`api/submit.js` only runs under the Vercel runtime, so use:
+
+```bash
+npm i -g vercel
+vercel dev          # then open the printed localhost URL
+```
+
+Create a `.env` file (gitignored) with `RESEND_API_KEY=re_...` for local runs.
+Opening `index.html` directly as a file will show the form but the submit call
+to `/api/submit` won't work — that's expected.
+
+---
+
+## Google Sheet (logging every submission)
+
+Submissions are also appended as a row to this sheet:
+https://docs.google.com/spreadsheets/d/1j_PCme8funsC6j__ec9af3rGO0o0qpAupjPD8Yjr2vA/edit
+
+A plain share link can't be written to programmatically — you deploy a small
+Apps Script web app *from that sheet*, which gives you an `…/exec` URL that
+`api/submit.js` posts to (via the `GOOGLE_SCRIPT_URL` env var). Email and the
+sheet are independent: if one fails, the other still records the lead.
+
+### One-time setup
+
+1. Open the sheet and put these headers in **Row 1** (left to right):
+
+   `Timestamp | First Name | Last Name | Email | City | Country | Instagram | TikTok | YouTube | X (Twitter) | LinkedIn | Blog | Other Platform | Followers | Engagement | Niches | Gifted | Content Types | Rate: Reel | Rate: Static | Rate: Story | Rate: UGC | Rate: Long-form | Rate: Live | Currency | Rate Notes | Audience Insights | Past Collabs | Media Kit | Anything Else`
+
+2. **Extensions → Apps Script**. Delete the default code, paste this, and Save:
+
+   ```javascript
+   function doPost(e) {
+     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+     var d = JSON.parse(e.postData.contents);
+     sheet.appendRow([
+       new Date(), d.firstName, d.lastName, d.email, d.city, d.country,
+       d.instagram, d.tiktok, d.youtube, d.twitter, d.linkedin, d.blog,
+       d.otherPlatform, d.followers, d.engagement, d.niches, d.gifted,
+       d.contentTypes, d.rateReel, d.rateStatic, d.rateStory, d.rateUGC,
+       d.rateLongform, d.rateLive, d.rateCurrency, d.rateNotes,
+       d.audienceInsights, d.pastCollabs, d.mediaKit, d.anythingElse
+     ]);
+     return ContentService
+       .createTextOutput(JSON.stringify({ result: 'success' }))
+       .setMimeType(ContentService.MimeType.JSON);
+   }
+   ```
+
+3. **Deploy → New deployment → Type: Web app.**
+   - **Execute as:** Me
+   - **Who has access:** Anyone
+   - Click **Deploy**, authorize, and copy the **Web app URL** (ends in `/exec`).
+
+4. In Vercel → **Settings → Environment Variables**, add
+   `GOOGLE_SCRIPT_URL` = that `/exec` URL, then **redeploy**.
+
+> Apps Script does a 302 redirect on POST. Vercel's runtime follows it
+> automatically, so no extra config is needed.
+
+---
+
 ## Making changes later
 
 Any time you edit `index.html` and push to GitHub, Vercel auto-deploys within ~20 seconds. From Terminal:

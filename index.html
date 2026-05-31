@@ -835,77 +835,13 @@
 </div>
 
 <!-- ══════════════════════════════════════════
-     JAVASCRIPT — Form submission to Google Sheets
+     JAVASCRIPT — Form submission to Resend (via /api/submit)
      ══════════════════════════════════════════ -->
 <script>
-  // ┌──────────────────────────────────────────────────────────────────┐
-  // │  HOW TO CONNECT TO GOOGLE SHEETS (one-time setup, ~5 minutes):  │
-  // │                                                                  │
-  // │  1. Create a new Google Sheet                                    │
-  // │  2. Add these column headers in Row 1:                           │
-  // │     Timestamp | First Name | Last Name | Email | City | Country  │
-  // │     | Instagram | TikTok | YouTube | X (Twitter) | LinkedIn       │
-  // │     | Blog | Other Platform | Followers                          │
-  // │     | Engagement | Niches | Gifted | Content Types               │
-  // │     | Rate: Reel | Rate: Static | Rate: Story | Rate: UGC        │
-  // │     | Rate: Long-form | Rate: Live | Currency | Rate Notes       │
-  // │     | Audience Insights | Past Collabs | Media Kit               │
-  // │     | Anything Else                                              │
-  // │                                                                  │
-  // │  3. Go to Extensions → Apps Script                               │
-  // │  4. Delete everything and paste this code:                       │
-  // │                                                                  │
-  // │     function doPost(e) {                                         │
-  // │       var sheet = SpreadsheetApp                                  │
-  // │         .getActiveSpreadsheet()                                  │
-  // │         .getActiveSheet();                                       │
-  // │       var data = JSON.parse(e.postData.contents);                │
-  // │       sheet.appendRow([                                          │
-  // │         new Date(),                                              │
-  // │         data.firstName,                                          │
-  // │         data.lastName,                                           │
-  // │         data.email,                                              │
-  // │         data.city,                                               │
-  // │         data.country,                                            │
-  // │         data.instagram,                                          │
-  // │         data.tiktok,                                             │
-  // │         data.youtube,                                            │
-  // │         data.twitter,                                            │
-  // │         data.linkedin,                                           │
-  // │         data.blog,                                               │
-  // │         data.otherPlatform,                                      │
-  // │         data.followers,                                          │
-  // │         data.engagement,                                         │
-  // │         data.niches,                                             │
-  // │         data.gifted,                                             │
-  // │         data.contentTypes,                                       │
-  // │         data.rateReel,                                           │
-  // │         data.rateStatic,                                         │
-  // │         data.rateStory,                                          │
-  // │         data.rateUGC,                                            │
-  // │         data.rateLongform,                                       │
-  // │         data.rateLive,                                           │
-  // │         data.rateCurrency,                                       │
-  // │         data.rateNotes,                                          │
-  // │         data.audienceInsights,                                   │
-  // │         data.pastCollabs,                                        │
-  // │         data.mediaKit,                                           │
-  // │         data.anythingElse                                        │
-  // │       ]);                                                        │
-  // │       return ContentService                                      │
-  // │         .createTextOutput(JSON.stringify({result: 'success'}))   │
-  // │         .setMimeType(ContentService.MimeType.JSON);              │
-  // │     }                                                            │
-  // │                                                                  │
-  // │  5. Click Deploy → New Deployment                                │
-  // │  6. Type = "Web app"                                             │
-  // │     Execute as = "Me"                                            │
-  // │     Who has access = "Anyone"                                    │
-  // │  7. Click Deploy, authorize, and copy the URL                    │
-  // │  8. Paste that URL below where it says YOUR_SCRIPT_URL           │
-  // └──────────────────────────────────────────────────────────────────┘
-
-  const GOOGLE_SCRIPT_URL = 'YOUR_SCRIPT_URL';
+  // Submissions are POSTed to the serverless function at /api/submit, which
+  // emails them via Resend to hello@amavisocials.co. The Resend API key lives
+  // in a Vercel environment variable (RESEND_API_KEY) — never in this page.
+  const SUBMIT_URL = '/api/submit';
 
   const form = document.getElementById('signupForm');
   const submitBtn = document.getElementById('submitBtn');
@@ -1020,6 +956,7 @@
 
     // ── Build payload ──
     const payload = {
+      website:          document.getElementById('website').value,
       firstName:        document.getElementById('firstName').value.trim(),
       lastName:         document.getElementById('lastName').value.trim(),
       email:            email,
@@ -1055,17 +992,13 @@
     submitBtn.classList.add('loading');
 
     try {
-      if (GOOGLE_SCRIPT_URL === 'YOUR_SCRIPT_URL') {
-        // Demo mode — simulate success after 1.5s
-        await new Promise(r => setTimeout(r, 1500));
-      } else {
-        await fetch(GOOGLE_SCRIPT_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-      }
+      const res = await fetch(SUBMIT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      if (!res.ok) throw new Error('Request failed: ' + res.status);
 
       // Show success
       form.style.display = 'none';
@@ -1073,7 +1006,7 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
 
     } catch (err) {
-      showError('Something went wrong. Please try again or email us directly at hello@amavi.social');
+      showError('Something went wrong. Please try again or email us directly at hello@amavisocials.co');
     } finally {
       submitBtn.classList.remove('loading');
     }
