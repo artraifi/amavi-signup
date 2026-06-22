@@ -66,7 +66,7 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Missing required fields.' });
   }
 
-  const to = process.env.RESEND_TO || 'hello@amavisocials.co';
+  const to = process.env.RESEND_TO || 'hello@amavisocials.com';
   const from = process.env.RESEND_FROM || 'AMAVI Signups <signups@notifications.amavisocials.co>';
 
   const rows = fields
